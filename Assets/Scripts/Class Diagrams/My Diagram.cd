@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Ball">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIQCAABAASIABAAAAACAFAAAAQSBAAAAAACAAABAEAI=</HashCode>
+      <FileName>Assets\Scripts\gameplay\Ball.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="lifetimer" />
+      <Field Name="moveTimer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pickup">
+    <Position X="4" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAEAAAAAAEAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\gameplay\Pickup.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="despawnTimer" />
+      <Field Name="myType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Paddle">
+    <Position X="7" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAqCAIAAAAAAAAAAAAQAAAQAAAAAkAAAhAAA=</HashCode>
+      <FileName>Assets\Scripts\gameplay\Paddle.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mySide" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Timer">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAACAAAAAAQAAgAAAAgAAAAIAAAAAAEAAAI=</HashCode>
+      <FileName>Assets\Scripts\gameplay\Timer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BallSpawner">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAACBAIAAAAAAAAAAAAAAAAAAAIAAAAAAABAA=</HashCode>
+      <FileName>Assets\Scripts\gameplay\BallSpawner.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="tim" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="ScreenSide">
+    <Position X="11.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\gameplay\ScreenSide.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PickupType" Collapsed="true">
+    <Position X="7.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\Scripts\gameplay\PickupType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
