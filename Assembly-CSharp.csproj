@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\gameplay\Timer.cs" />
      <Compile Include="Assets\Scripts\HotDogRotator.cs" />
      <Compile Include="Assets\Scripts\MeatballRotator.cs" />
+     <Compile Include="Assets\Scripts\Menus\MenuController.cs" />
      <Compile Include="Assets\Scripts\Menus\MenuManager.cs" />
      <Compile Include="Assets\Scripts\Menus\MenuState.cs" />
      <Compile Include="Assets\Scripts\util\GameInitializer.cs" />

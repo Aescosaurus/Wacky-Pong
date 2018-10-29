@@ -17,6 +17,16 @@
       <FileName>Assets\Scripts\gameplay\HUD.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="MenuController">
+    <Position X="4.5" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAQAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Menus\MenuController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="menuMan" />
+    </ShowAsAssociation>
+  </Class>
   <Enum Name="MenuState">
     <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
