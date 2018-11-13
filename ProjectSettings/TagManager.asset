@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ball
+  - QuitLight
+  - HelpLight
+  - BackLight
+  - HelpMenu
+  - Start2PLight
+  - Start1PLight
+  - ResumeLight
+  - PauseMenu
+  - BackToMenuLight
   layers:
   - Default
   - TransparentFX

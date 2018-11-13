@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{83F0FC27-4219-29F4-BB40-253CAE9083A8}</ProjectGuid>
+    <ProjectGuid>{A8534D1B-8E35-C726-131E-12023689956A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -67,25 +67,34 @@
      <Compile Include="Assets\Scripts\gameplay\Timer.cs" />
      <Compile Include="Assets\Scripts\HotDogRotator.cs" />
      <Compile Include="Assets\Scripts\MeatballRotator.cs" />
+     <Compile Include="Assets\Scripts\Menus\BackButton.cs" />
+     <Compile Include="Assets\Scripts\Menus\BackToMenuButton.cs" />
+     <Compile Include="Assets\Scripts\Menus\Button.cs" />
+     <Compile Include="Assets\Scripts\Menus\HandlePausing.cs" />
+     <Compile Include="Assets\Scripts\Menus\HelpButton.cs" />
      <Compile Include="Assets\Scripts\Menus\MenuController.cs" />
      <Compile Include="Assets\Scripts\Menus\MenuManager.cs" />
      <Compile Include="Assets\Scripts\Menus\MenuState.cs" />
+     <Compile Include="Assets\Scripts\Menus\QuitButton.cs" />
+     <Compile Include="Assets\Scripts\Menus\ResumeButton.cs" />
+     <Compile Include="Assets\Scripts\Menus\Start1Player.cs" />
+     <Compile Include="Assets\Scripts\Menus\Start2Player.cs" />
      <Compile Include="Assets\Scripts\util\GameInitializer.cs" />
      <Compile Include="Assets\Scripts\util\ScreenUtils.cs" />
      <None Include="Assets\Scripts\Class Diagrams\Menus.cd" />
      <None Include="Assets\Scripts\Class Diagrams\My Diagram.cd" />
      <None Include="Assets\Scripts\Class Diagrams\GameplayClassDiagram.cd" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/Aesc/Desktop/Ping Pang Pong/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Aesc/Desktop/Wacky-Pong/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Aesc/Desktop/Ping Pang Pong/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Aesc/Desktop/Wacky-Pong/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/Aesc/Desktop/Ping Pang Pong/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/Aesc/Desktop/Wacky-Pong/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Aesc/Desktop/Ping Pang Pong/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Aesc/Desktop/Wacky-Pong/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

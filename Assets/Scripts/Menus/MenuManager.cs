@@ -8,12 +8,8 @@ public class MenuManager
 {
     MenuState curState;
     // 
-    void StartSingleplayer()
-    {}
-    void StartMultiplayer()
-    {}
-    void ShowHelpMenu()
-    {}
-    void ExitGame()
-    {}
+    void GotoMenu( MenuState state )
+    {
+        // TODO: Add switch here or smth.
+    }
 }

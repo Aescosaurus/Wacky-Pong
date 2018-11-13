@@ -31,6 +31,9 @@ public class Paddle
     /// </summary>
     void FixedUpdate()
     {
+        // Don't let the player move or do anything if paused.
+        if( paused ) return;
+
         // Test for left or right side and act accordingly.
         switch( mySide )
         {
@@ -152,6 +155,20 @@ public class Paddle
             return ( true );
         }
     }
+    /// <summary>
+    ///     Pause so the controls don't work.
+    /// </summary>
+    public void Pause()
+    {
+        paused = true;
+    }
+    /// <summary>
+    ///     Return control to the player.
+    /// </summary>
+    public void Unpause()
+    {
+        paused = false;
+    }
     // 
     Rigidbody2D body;
     [SerializeField] ScreenSide mySide;
@@ -160,4 +177,5 @@ public class Paddle
     float halfHeight;
     float halfWidth;
     const float bounceAngleHalfRange = 60.0f * Mathf.Deg2Rad;
+    bool paused = false;
 }

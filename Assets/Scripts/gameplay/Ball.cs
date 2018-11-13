@@ -50,7 +50,7 @@ public class Ball
         lifetimer.Run();
 
         moveTimer = gameObject.AddComponent<Timer>();
-        print( ConfigurationUtils.BallSpawnTime );
+        // print( ConfigurationUtils.BallSpawnTime );
         moveTimer.Duration = ConfigurationUtils.BallSpawnTime;
         moveTimer.Run();
 
@@ -113,7 +113,7 @@ public class Ball
     /// <summary>
     ///     Applies initial ball velocity.
     /// </summary>
-    void StartMoving()
+    public void StartMoving()
     {
         float pi = Mathf.PI;
         float qPi = pi / 4.0f;
@@ -146,7 +146,7 @@ public class Ball
         {
             destroying = true;
 
-            var cam = GameObject.FindGameObjectsWithTag( "MainCamera" )[0];
+            var cam = Camera.main;
             var ballSpawner = cam.GetComponent<BallSpawner>();
             if( ballSpawner != null ) ballSpawner.SpawnNewBall();
 
@@ -173,7 +173,7 @@ public class Ball
     /// <summary>
     ///     Use this guy to stop movement.
     /// </summary>
-    void Freeze()
+    public void Freeze()
     {
         Assert.IsNotNull( body );
         body.constraints = RigidbodyConstraints2D.FreezePosition |
@@ -183,7 +183,7 @@ public class Ball
     ///     Use this one to continue movement but keep the
     ///      other constraints (like x) that we want.
     /// </summary>
-    void Unfreeze()
+    public void Unfreeze()
     {
         Assert.IsNotNull( body );
         body.constraints = RigidbodyConstraints2D.None |

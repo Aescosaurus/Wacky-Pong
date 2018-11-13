@@ -304,8 +304,8 @@ GameObject:
   - component: {fileID: 485416074}
   - component: {fileID: 485416080}
   - component: {fileID: 485416081}
-  - component: {fileID: 485416079}
   - component: {fileID: 485416082}
+  - component: {fileID: 485416079}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -395,9 +395,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 485416073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0fce735b5bf7ae4e89161dca2d7423f, type: 3}
+  m_Script: {fileID: 11500000, guid: bc8bcd4f2d169bb4b9a8f7582d3de6d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1054262011292198, guid: 053b8882f4311594488bb8f28271e16f, type: 2}
 --- !u!68 &485416080
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -616,7 +617,7 @@ GameObject:
   - component: {fileID: 1062771643}
   m_Layer: 0
   m_Name: RightPaddle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,7 +781,7 @@ GameObject:
   - component: {fileID: 1649361432}
   m_Layer: 0
   m_Name: LeftPaddle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
