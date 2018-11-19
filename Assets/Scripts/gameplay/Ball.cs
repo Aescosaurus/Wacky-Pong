@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 
 public class TwoVec2
 {
@@ -30,6 +31,7 @@ public class Ball
     static bool setBounds = false;
     static Vector2 topLeft = new Vector2( 0.0f,0.0f );
     static Vector2 botRight = new Vector2( 0.0f,0.0f );
+    PointsAddedEvent addPoints;
     // 
     public float Hits
     {
@@ -68,6 +70,9 @@ public class Ball
         }
 
         Freeze(); // So we don't start prematurely.
+
+        addPoints = new PointsAddedEvent();
+        EventManager.AddInvoker( addPoints );
 	}
     /// <summary>
     ///     Updates timers and starts/destroys when they're done.
@@ -188,5 +193,21 @@ public class Ball
         Assert.IsNotNull( body );
         body.constraints = RigidbodyConstraints2D.None |
             RigidbodyConstraints2D.FreezeRotation;
+    }
+    void AddPointsAddedListener( UnityAction<ScreenSide,int> listener )
+    {
+        addPoints.AddListener( listener );
+    }
+    /// <summary>
+    ///     Adds points to the side that scored based on
+    ///      which side the ball was on.
+    ///      (Called from DestroyBallWhenInvisible)
+    /// </summary>
+    public void AddPoints()
+    {
+        print( "works!" );
+        addPoints.Invoke( transform.position.x > 0.0f
+            ? ScreenSide.Left : ScreenSide.Right,
+            ( int )hits );
     }
 }

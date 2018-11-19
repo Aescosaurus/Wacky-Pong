@@ -32,16 +32,9 @@ public class DestroyBallWhenInvisible
                 // Make new ball and destroy the old one.
                 ballScr.DestroyAndMakeNewBall();
 
-                // Find the correct side to give points to.
-                ScreenSide side;
-                if( theBall.transform.position.x > 0 )
-                { // As in the left scores, not it's on the left side.
-                    side = ScreenSide.Left;
-                }
-                else side = ScreenSide.Right;
-
                 // Actually give score.
-                HUD.AddScore( side,1 );
+                // HUD.AddScore( side,1 );
+                ballScr.AddPoints();
             }
         }
     }

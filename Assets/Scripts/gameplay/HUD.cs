@@ -32,6 +32,8 @@ public class HUD
 
         leftHitsText = leftHitsHolder.GetComponent<Text>();
         rightHitsText = rightHitsHolder.GetComponent<Text>();
+
+        EventManager.AddListener( AddScore );
     }
     /// <summary>
     ///     Used by others to add hits for each side.
@@ -56,7 +58,7 @@ public class HUD
     /// </summary>
     /// <param name="scoringSide">Which side **scores the point**.</param>
     /// <param name="amountAdded">How many points said side gains.</param>
-    public static void AddScore( ScreenSide scoringSide,int amountAdded )
+    void AddScore( ScreenSide scoringSide,int amountAdded )
     {
         switch( scoringSide )
         {
