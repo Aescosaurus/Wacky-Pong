@@ -3,7 +3,7 @@
   <Class Name="Ball">
     <Position X="0.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AIQCAABAASIABAAAAACAFAAAAQSBAAAAAACAAABAEAI=</HashCode>
+      <HashCode>CIQCABBAASIQBAAAAACAFAAAAQSBAAAABACAAABAEAI=</HashCode>
       <FileName>Assets\Scripts\gameplay\Ball.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -25,7 +25,7 @@
   <Class Name="Paddle">
     <Position X="7" Y="0.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAqCAIAAAAAAAAAAAAQAAAQAAAAAkAAAhAAA=</HashCode>
+      <HashCode>AAAgQAAQAqCAIAAAAAAAAAAAAQAAAQAABAAkAAAlIAA=</HashCode>
       <FileName>Assets\Scripts\gameplay\Paddle.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -35,19 +35,41 @@
   <Class Name="Timer">
     <Position X="4.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAEAAAAAACAAAAAAQAAgAAAAgAAAAIAAAAAAEAAAI=</HashCode>
+      <HashCode>AAQAEAQAAAACABAAAAQAAgAAAAgAAAAIAAAAAAEAAAI=</HashCode>
       <FileName>Assets\Scripts\gameplay\Timer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BallSpawner">
     <Position X="9.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAgAAAACBAIAAAAAAAAAAAAAAAAAAAIAAAAAAABAA=</HashCode>
+      <HashCode>AAQAgAAAACBAIAAAAAIAAAAAAAAAAAAAIAAAAAgABAA=</HashCode>
       <FileName>Assets\Scripts\gameplay\BallSpawner.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="tim" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="EventManager">
+    <Position X="0.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAIAAAAAAAAACEAAAAQA=</HashCode>
+      <FileName>Assets\Scripts\Events\EventManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="invokers" />
+      <Field Name="listeners" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="UnityEngine.Events.UnityEvent&lt;T0, T1&gt;">
+    <Position X="3.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="BallLostEvent">
+    <Position X="8" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Events\BallLostEvent.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Enum Name="ScreenSide">
     <Position X="11.25" Y="0.75" Width="1.5" />
@@ -63,5 +85,9 @@
       <FileName>Assets\Scripts\gameplay\PickupType.cs</FileName>
     </TypeIdentifier>
   </Enum>
+  <Delegate Name="UnityEngine.Events.UnityAction&lt;T0, T1&gt;">
+    <Position X="5.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier />
+  </Delegate>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
