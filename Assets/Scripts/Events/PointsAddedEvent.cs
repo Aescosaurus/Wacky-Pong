@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PointsAddedEvent
+public class BallLostEvent
     :
     UnityEvent<ScreenSide,int>
 {}

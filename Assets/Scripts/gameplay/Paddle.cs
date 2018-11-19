@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// A paddle that moves up and down I guess.
@@ -128,7 +129,8 @@ public class Paddle
             ballScript.SetDirection( direction );
 
             // Increment hits
-            HUD.AddHits( mySide,ballScript.Hits );
+            // HUD.AddHits( mySide,ballScript.Hits );
+            hitPaddle.Invoke( mySide,( int )ballScript.Hits );
         }
     }
     /// <summary>
@@ -169,6 +171,14 @@ public class Paddle
     {
         paused = false;
     }
+    /// <summary>
+    ///     Hooks up the listener to the invoker.
+    /// </summary>
+    /// <param name="listener">Listener to hook up.</param>
+    public static void AddHitPaddleListener( UnityAction<ScreenSide,int> listener )
+    {
+        hitPaddle.AddListener( listener );
+    }
     // 
     Rigidbody2D body;
     [SerializeField] ScreenSide mySide;
@@ -178,4 +188,5 @@ public class Paddle
     float halfWidth;
     const float bounceAngleHalfRange = 60.0f * Mathf.Deg2Rad;
     bool paused = false;
+    static BallLostEvent hitPaddle = new BallLostEvent();
 }

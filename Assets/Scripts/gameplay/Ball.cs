@@ -31,7 +31,7 @@ public class Ball
     static bool setBounds = false;
     static Vector2 topLeft = new Vector2( 0.0f,0.0f );
     static Vector2 botRight = new Vector2( 0.0f,0.0f );
-    PointsAddedEvent addPoints;
+    static BallLostEvent addPoints = new BallLostEvent();
     // 
     public float Hits
     {
@@ -70,9 +70,6 @@ public class Ball
         }
 
         Freeze(); // So we don't start prematurely.
-
-        addPoints = new PointsAddedEvent();
-        EventManager.AddInvoker( addPoints );
 	}
     /// <summary>
     ///     Updates timers and starts/destroys when they're done.
@@ -194,7 +191,11 @@ public class Ball
         body.constraints = RigidbodyConstraints2D.None |
             RigidbodyConstraints2D.FreezeRotation;
     }
-    void AddPointsAddedListener( UnityAction<ScreenSide,int> listener )
+    /// <summary>
+    ///     Hooks up a listener to the invoker.
+    /// </summary>
+    /// <param name="listener">Listener to add.</param>
+    public static void AddPointsAddedListener( UnityAction<ScreenSide,int> listener )
     {
         addPoints.AddListener( listener );
     }
@@ -205,7 +206,6 @@ public class Ball
     /// </summary>
     public void AddPoints()
     {
-        print( "works!" );
         addPoints.Invoke( transform.position.x > 0.0f
             ? ScreenSide.Left : ScreenSide.Right,
             ( int )hits );
