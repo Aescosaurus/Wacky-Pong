@@ -70,24 +70,16 @@ public class Ball
         }
 
         Freeze(); // So we don't start prematurely.
+
+        lifetimer.AddListener( DestroyAndMakeNewBall );
+        moveTimer.AddListener( InitiateMovement );
 	}
     /// <summary>
     ///     Updates timers and starts/destroys when they're done.
     /// </summary>
     void Update()
     {
-        if( lifetimer.Finished )
-        {
-            DestroyAndMakeNewBall();
-        }
-
-        if( moveTimer.Finished && !startedMoving )
-        {
-            // print( "We started moving!" );
-            Unfreeze(); // Make sure we can move again.
-            StartMoving();
-            startedMoving = true;
-        }
+        // All this stuff is done with event handling.
     }
     /// <summary>
     ///     Change the direction you're going in.
@@ -209,5 +201,15 @@ public class Ball
         addPoints.Invoke( transform.position.x > 0.0f
             ? ScreenSide.Left : ScreenSide.Right,
             ( int )hits );
+    }
+    void InitiateMovement()
+    {
+        if( !startedMoving )
+        {
+            // print( "We started moving!" );
+            Unfreeze(); // Make sure we can move again.
+            StartMoving();
+            startedMoving = true;
+        }
     }
 }

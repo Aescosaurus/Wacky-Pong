@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
 	// support for Finished property
 	bool started = false;
 
-    static UnityEvent timerFinished = new UnityEvent();
+    UnityEvent timerFinished = new UnityEvent();
 	
 	#endregion
 	

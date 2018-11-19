@@ -20,20 +20,13 @@ public class BallSpawner
         tim = gameObject.AddComponent<Timer>();
         tim.Duration = GetRandDuration();
         tim.Run();
+
+        tim.AddListener( SpawnBallResetTimer );
+        EventManager.AddListener( SpawnNewBall2 );
+        Ball.AddPointsAddedListener( SpawnNewBall2 );
     }
     void Update()
     {
-		// When the timer is finished.
-        if( tim.Finished )
-        {
-			// Reset timer duration to random number between
-			//  min and max ball spawn time.
-            tim.Duration = GetRandDuration();
-			
-			// Actually create the new ball.
-            SpawnNewBall();
-        }
-		
 		// While there are still balls in the queue,
 		//  try to spawn a new one.
         if( ballQueue > 0 ) SpawnNewBall();
@@ -69,5 +62,18 @@ public class BallSpawner
         return( Random.Range( ConfigurationUtils
             .BallMinSpawnSecs,ConfigurationUtils
             .BallMaxSpawnSecs ) );
+    }
+    void SpawnBallResetTimer()
+    {
+        // Reset timer duration to random number between
+        //  min and max ball spawn time.
+        tim.Duration = GetRandDuration();
+
+        // Actually create the new ball.
+        SpawnNewBall();
+    }
+    void SpawnNewBall2( ScreenSide useless,int fake )
+    {
+        SpawnNewBall();
     }
 }
