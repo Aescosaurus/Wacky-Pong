@@ -24,6 +24,7 @@ public class Ball
 {
     Rigidbody2D body;
     float hits;
+    float points;
     Timer lifetimer;
     Timer moveTimer;
     bool startedMoving = false;
@@ -32,6 +33,7 @@ public class Ball
     static Vector2 topLeft = new Vector2( 0.0f,0.0f );
     static Vector2 botRight = new Vector2( 0.0f,0.0f );
     static BallLostEvent addPoints = new BallLostEvent();
+    [SerializeField] BallType myType;
     // 
     public float Hits
     {
@@ -45,7 +47,18 @@ public class Ball
         // Set up initial vars pls ty.
         body = GetComponent<Rigidbody2D>();
 
-        hits = ConfigurationUtils.BallHits;
+        switch( myType )
+        {
+            case BallType.Standard:
+            case BallType.Freezer:
+                hits = ConfigurationUtils.BallHits;
+                points = 1;
+                break;
+            case BallType.Bonus:
+                hits = ConfigurationUtils.BonusHits;
+                points = ConfigurationUtils.BonusPoints;
+                break;
+        }
 
         lifetimer = gameObject.AddComponent<Timer>();
         lifetimer.Duration = ConfigurationUtils.BallLifetime;
@@ -73,7 +86,7 @@ public class Ball
 
         lifetimer.AddListener( DestroyAndMakeNewBall );
         moveTimer.AddListener( InitiateMovement );
-	}
+    }
     /// <summary>
     ///     Updates timers and starts/destroys when they're done.
     /// </summary>
@@ -154,7 +167,7 @@ public class Ball
     /// <returns>Whether or not the ball is marked to be destroyed.</returns>
     public bool IsDead()
     {
-        return( destroying );
+        return ( destroying );
     }
     /// <summary>
     ///     Gives you the top left and lower right of my hitbox, for collision test reasons.
@@ -162,7 +175,7 @@ public class Ball
     /// <returns>The top left and bot right of my hitbox.</returns>
     public static TwoVec2 GetDiagBounds()
     {
-        return( new TwoVec2( topLeft,botRight ) );
+        return ( new TwoVec2( topLeft,botRight ) );
     }
     /// <summary>
     ///     Use this guy to stop movement.
@@ -200,7 +213,7 @@ public class Ball
     {
         addPoints.Invoke( transform.position.x > 0.0f
             ? ScreenSide.Left : ScreenSide.Right,
-            ( int )hits );
+            ( int )points );
     }
     void InitiateMovement()
     {

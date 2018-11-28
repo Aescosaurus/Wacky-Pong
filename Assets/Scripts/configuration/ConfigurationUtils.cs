@@ -59,6 +59,16 @@ public static class ConfigurationUtils
         get { return( configData.BallMaxSpawnSecs ); }
     }
 
+    public static float BonusPoints
+    {
+        get { return( configData.BonusPoints ); }
+    }
+
+    public static float BonusHits
+    {
+        get { return( configData.BonusHits ); }
+    }
+
     #endregion
 
     /// <summary>

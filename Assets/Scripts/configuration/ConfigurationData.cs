@@ -21,6 +21,8 @@ public class ConfigurationData
     static float ballSpawnTime;
     static float ballMinSpawnSecs;
     static float ballMaxSpawnSecs;
+    static float bonusPoints;
+    static float bonusHits;
 
     #endregion
 
@@ -76,6 +78,16 @@ public class ConfigurationData
         get { return( ballMaxSpawnSecs ); }
     }
 
+    public float BonusPoints
+    {
+        get { return( bonusPoints ); }
+    }
+
+    public float BonusHits
+    {
+        get { return( bonusHits ); }
+    }
+
     #endregion
 
     #region Constructor
@@ -106,6 +118,8 @@ public class ConfigurationData
             ballSpawnTime = float.Parse( vals[4] );
             ballMinSpawnSecs = float.Parse( vals[5] );
             ballMaxSpawnSecs = float.Parse( vals[6] );
+            bonusPoints = float.Parse( vals[7] );
+            bonusHits = float.Parse( vals[8] );
         }
         catch( Exception e )
         {
