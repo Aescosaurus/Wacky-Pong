@@ -26,6 +26,22 @@ public class Paddle
         halfWidth = box.size.x / 2.0f;
 
         speed = ConfigurationUtils.PaddleMoveUnitsPerSecond;
+
+        frozenTimer = gameObject.AddComponent<Timer>();
+
+        if( !initializedListeners )
+        {
+            EventManager.AddListener( Freeze );
+            Pickup.AddFrozenListener( Freeze );
+            initializedListeners = true;
+        }
+    }
+    void Update()
+    {
+        if( frozenTimer.Finished )
+        {
+            Unpause();
+        }
     }
     /// <summary>
     /// Fixed Update is called like 50 times a second.
@@ -103,6 +119,13 @@ public class Paddle
     /// <param name="coll">collision info</param>
     void OnCollisionEnter2D( Collision2D coll )
     {
+        var pickupScr = coll.gameObject.GetComponent<Pickup>();
+        if( coll.gameObject.tag == "Ball" && pickupScr != null )
+        {
+            pickupScr.InvokeEffect( mySide );
+            Destroy( coll.gameObject );
+        }
+
         if( IsHittingSide( coll ) && coll.gameObject.CompareTag( "Ball" ) )
         {
             // calculate new ball direction
@@ -171,6 +194,12 @@ public class Paddle
     {
         paused = false;
     }
+    void FreezeForDuration( int duration )
+    {
+        frozenTimer.Duration = ConfigurationUtils.FreezerDuration;
+        frozenTimer.Run();
+        Pause();
+    }
     /// <summary>
     ///     Hooks up the listener to the invoker.
     /// </summary>
@@ -178,6 +207,22 @@ public class Paddle
     public static void AddHitPaddleListener( UnityAction<ScreenSide,int> listener )
     {
         hitPaddle.AddListener( listener );
+    }
+    static void Freeze( ScreenSide s,int t )
+    {
+        var paddles = GameObject.FindGameObjectsWithTag( "Player" );
+        var paddle1 = paddles[0].GetComponent<Paddle>();
+        var paddle2 = paddles[1].GetComponent<Paddle>();
+        if( paddle1.mySide != s )
+        {
+            paddle1.FreezeForDuration( t );
+        }
+        else
+        {
+            paddle2.FreezeForDuration( t );
+        }
+        // Pause();
+        // Maybe change color to blue or cover in ice here.
     }
     // 
     Rigidbody2D body;
@@ -189,4 +234,6 @@ public class Paddle
     const float bounceAngleHalfRange = 60.0f * Mathf.Deg2Rad;
     bool paused = false;
     static BallLostEvent hitPaddle = new BallLostEvent();
+    Timer frozenTimer;
+    static bool initializedListeners = false;
 }

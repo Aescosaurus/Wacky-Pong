@@ -6,5 +6,6 @@ public enum BallType
 {
     Standard,
     Bonus,
-    Freezer
+    Freezer,
+    Speedup
 }

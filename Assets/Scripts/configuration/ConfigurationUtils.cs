@@ -69,6 +69,31 @@ public static class ConfigurationUtils
         get { return( configData.BonusHits ); }
     }
 
+    public static float StandardSpawnRate
+    {
+        get { return( configData.StandardSpawnRate ); }
+    }
+
+    public static float BonusSpawnRate
+    {
+        get { return( configData.BonusSpawnRate ); }
+    }
+
+    public static float FreezerSpawnRate
+    {
+        get { return( configData.FreezerSpawnRate ); }
+    }
+
+    public static float SpeedupSpawnRate
+    {
+        get { return( configData.SpeedupSpawnRate ); }
+    }
+
+    public static float FreezerDuration
+    {
+        get { return( configData.FreezerDuration ); }
+    }
+
     #endregion
 
     /// <summary>

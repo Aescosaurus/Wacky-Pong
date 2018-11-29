@@ -14,6 +14,7 @@ TagManager:
   - ResumeLight
   - PauseMenu
   - BackToMenuLight
+  - Paddle
   layers:
   - Default
   - TransparentFX

@@ -42,7 +42,7 @@ public class Ball
     /// <summary>
     /// Use this for initialization
     /// </summary>
-    void Start()
+    protected virtual void Start()
     {
         // Set up initial vars pls ty.
         body = GetComponent<Rigidbody2D>();
@@ -224,5 +224,9 @@ public class Ball
             StartMoving();
             startedMoving = true;
         }
+    }
+    protected BallType GetBallType()
+    {
+        return( myType );
     }
 }

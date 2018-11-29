@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\DestroyBallWhenInvisible.cs" />
      <Compile Include="Assets\Scripts\Events\BallLostEvent.cs" />
      <Compile Include="Assets\Scripts\Events\EventManager.cs" />
+     <Compile Include="Assets\Scripts\Events\FreezerActivatedEvent.cs" />
      <Compile Include="Assets\Scripts\gameplay\Ball.cs" />
      <Compile Include="Assets\Scripts\gameplay\BallSpawner.cs" />
      <Compile Include="Assets\Scripts\gameplay\BallType.cs" />

@@ -23,6 +23,11 @@ public class ConfigurationData
     static float ballMaxSpawnSecs;
     static float bonusPoints;
     static float bonusHits;
+    static float standardSpawnRate;
+    static float bonusSpawnRate;
+    static float freezerSpawnRate;
+    static float speedupSpawnRate;
+    static float freezerDuration;
 
     #endregion
 
@@ -88,6 +93,31 @@ public class ConfigurationData
         get { return( bonusHits ); }
     }
 
+    public float StandardSpawnRate
+    {
+        get { return( standardSpawnRate ); }
+    }
+    
+    public float BonusSpawnRate
+    {
+        get { return( bonusSpawnRate ); }
+    }
+
+    public float FreezerSpawnRate
+    {
+        get { return( freezerSpawnRate ); }
+    }
+
+    public float SpeedupSpawnRate
+    {
+        get { return( speedupSpawnRate ); }
+    }
+
+    public float FreezerDuration
+    {
+        get { return( freezerDuration ); }
+    }
+
     #endregion
 
     #region Constructor
@@ -120,10 +150,15 @@ public class ConfigurationData
             ballMaxSpawnSecs = float.Parse( vals[6] );
             bonusPoints = float.Parse( vals[7] );
             bonusHits = float.Parse( vals[8] );
+            standardSpawnRate = float.Parse( vals[9] );
+            bonusSpawnRate = float.Parse( vals[10] );
+            freezerSpawnRate = float.Parse( vals[11] );
+            speedupSpawnRate = float.Parse( vals[12] );
+            freezerDuration = float.Parse( vals[13] );
         }
         catch( Exception e )
         {
-            Debug.Log( "You failed!" );
+            Debug.Log( "You failed! -> " + e.Message );
         }
         finally
         {

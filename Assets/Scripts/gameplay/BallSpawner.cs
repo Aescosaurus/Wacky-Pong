@@ -9,7 +9,10 @@ public class BallSpawner
     :
     MonoBehaviour
 {
-    [SerializeField] GameObject ball;
+    [SerializeField] GameObject standardBall;
+    [SerializeField] GameObject bonusBall;
+    [SerializeField] GameObject freezerPickup;
+    [SerializeField] GameObject speedupPickup;
     Timer tim = null;
     int ballQueue = 0;
     /// <summary>
@@ -44,7 +47,7 @@ public class BallSpawner
         if( !Physics2D.OverlapArea( bounds.first,bounds.sec ) )
         {
             // Create the ball object and put it in center.
-            GameObject tempBall = Instantiate( ball );
+            GameObject tempBall = MakeRandBall();
             tempBall.transform.position = Vector3.zero;
 
             // Take the ball out of the queue.
@@ -75,5 +78,35 @@ public class BallSpawner
     void SpawnNewBall2( ScreenSide useless,int fake )
     {
         SpawnNewBall();
+    }
+    GameObject MakeRandBall()
+    {
+        // Generate new random number each time or else
+        //  the others might not be called.  Also go in
+        //  reverse order so the lower chances can work.
+        if( ( int )Random.Range( 0,100 ) <
+            ConfigurationUtils.SpeedupSpawnRate )
+        {
+            return( Instantiate( speedupPickup ) );
+        }
+        else if( ( int )Random.Range( 0,100 ) <
+            ConfigurationUtils.FreezerSpawnRate )
+        {
+            return( Instantiate( freezerPickup ) );
+        }
+        else if( ( int )Random.Range( 0,100 ) <
+            ConfigurationUtils.BonusSpawnRate )
+        {
+            return( Instantiate( bonusBall ) );
+        }
+        else if( ( int )Random.Range( 0,100 ) <
+            ConfigurationUtils.StandardSpawnRate )
+        {
+            return( Instantiate( standardBall ) );
+        }
+        else // This can happen but is very rare.
+        {
+            return( Instantiate( standardBall ) );
+        }
     }
 }

@@ -25,16 +25,32 @@ public class DestroyBallWhenInvisible
             // Cache script because we can.
             var ballScr = theBall.GetComponent<Ball>();
 
-            // If ball is on screen and not already marked to be destroyed.
-            if( !IsOnScreen( theBall.transform.position ) &&
-                !ballScr.IsDead() )
+            if( ballScr != null )
             {
-                // Make new ball and destroy the old one.
-                ballScr.DestroyAndMakeNewBall();
+                // If ball is on screen and not already marked to be destroyed.
+                if( !IsOnScreen( theBall.transform.position ) &&
+                    !ballScr.IsDead() )
+                {
+                    // Make new ball and destroy the old one.
+                    ballScr.DestroyAndMakeNewBall();
 
-                // Actually give score.
-                // HUD.AddScore( side,1 );
-                ballScr.AddPoints();
+                    // Actually give score.
+                    // HUD.AddScore( side,1 );
+                    ballScr.AddPoints();
+                }
+            }
+            else
+            {
+                // If there's no ball script then there
+                //  must be a pickup script in its place.
+                var pickupScr = theBall.GetComponent<Pickup>();
+                Assert.IsNotNull( pickupScr );
+                if( !IsOnScreen( theBall.transform.position ) &&
+                    !pickupScr.IsDead() )
+                {
+                    pickupScr.DestroyAndMakeNewBall();
+                    pickupScr.AddPoints();
+                }
             }
         }
     }

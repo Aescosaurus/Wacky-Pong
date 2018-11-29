@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public enum PickupType
 {
-    Bonus,
     Freezer,
     Speedup
 }
