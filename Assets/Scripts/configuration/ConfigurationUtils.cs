@@ -94,6 +94,11 @@ public static class ConfigurationUtils
         get { return( configData.FreezerDuration ); }
     }
 
+    public static float SpeedupDuration
+    {
+        get { return( configData.SpeedupDuration ); }
+    }
+
     #endregion
 
     /// <summary>

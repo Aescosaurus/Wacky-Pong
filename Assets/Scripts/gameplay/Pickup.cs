@@ -9,6 +9,7 @@ public class Pickup
 {
     Timer despawnTimer;
     static FreezerActivatedEvent frozen = new FreezerActivatedEvent();
+    static FreezerActivatedEvent speedup = new FreezerActivatedEvent();
     // 
     protected override void Start()
     {
@@ -20,15 +21,14 @@ public class Pickup
     // {}
     public static void AddFrozenListener( UnityAction<ScreenSide,int> listener )
     {
-        print( "Listener added!" );
         frozen.AddListener( listener );
+    }
+    public static void AddSpeedupListener( UnityAction<ScreenSide,int> listener )
+    {
+        speedup.AddListener( listener );
     }
     public void InvokeEffect( ScreenSide side )
     {
-        print( "Invoking freezer!" );
-        print( side );
-        print( base.GetBallType() );
-
         switch( base.GetBallType() )
         {
             case BallType.Freezer:
@@ -36,6 +36,8 @@ public class Pickup
                     ( int )ConfigurationUtils.FreezerDuration );
                 break;
             case BallType.Speedup:
+                speedup.Invoke( side,
+                    ( int )ConfigurationUtils.SpeedupDuration );
                 break;
         }
     }

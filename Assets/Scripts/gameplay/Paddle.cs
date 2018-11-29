@@ -123,7 +123,8 @@ public class Paddle
         if( coll.gameObject.tag == "Ball" && pickupScr != null )
         {
             pickupScr.InvokeEffect( mySide );
-            Destroy( coll.gameObject );
+            pickupScr.DestroyAndMakeNewBall();
+            // Destroy( coll.gameObject );
         }
 
         if( IsHittingSide( coll ) && coll.gameObject.CompareTag( "Ball" ) )
@@ -196,7 +197,14 @@ public class Paddle
     }
     void FreezeForDuration( int duration )
     {
-        frozenTimer.Duration = ConfigurationUtils.FreezerDuration;
+        if( paused )
+        {
+            frozenTimer.Duration = frozenTimer.Duration + ConfigurationUtils.FreezerDuration;
+        }
+        else
+        {
+            frozenTimer.Duration = ConfigurationUtils.FreezerDuration;
+        }
         frozenTimer.Run();
         Pause();
     }

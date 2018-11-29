@@ -1,2 +1,2 @@
-PaddleMoveUnitsPerSecond,BallImpulseForce,StandardBallHits,BallLifetime,BallSpawnTime,MinSpawnSeconds,MaxSpawnSeconds,BonusPoints,BonusHits,StandardSpawnRate,BonusSpawnRate,FreezerSpawnRate,SpeedupSpawnRate,FreezerDuration
-10,5,1,10,2,6,8,2,2,60,20,10,10,2
+PaddleMoveUnitsPerSecond,BallImpulseForce,StandardBallHits,BallLifetime,BallSpawnTime,MinSpawnSeconds,MaxSpawnSeconds,BonusPoints,BonusHits,StandardSpawnRate,BonusSpawnRate,FreezerSpawnRate,SpeedupSpawnRate,FreezerDuration,SpeedupDuration
+10,5,1,10,2,6,8,2,2,60,20,10,10,2,2

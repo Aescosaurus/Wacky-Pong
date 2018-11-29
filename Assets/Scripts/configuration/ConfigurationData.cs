@@ -28,6 +28,7 @@ public class ConfigurationData
     static float freezerSpawnRate;
     static float speedupSpawnRate;
     static float freezerDuration;
+    static float speedupDuration;
 
     #endregion
 
@@ -118,6 +119,11 @@ public class ConfigurationData
         get { return( freezerDuration ); }
     }
 
+    public float SpeedupDuration
+    {
+        get { return( speedupDuration ); }
+    }
+
     #endregion
 
     #region Constructor
@@ -155,6 +161,7 @@ public class ConfigurationData
             freezerSpawnRate = float.Parse( vals[11] );
             speedupSpawnRate = float.Parse( vals[12] );
             freezerDuration = float.Parse( vals[13] );
+            speedupDuration = float.Parse( vals[14] );
         }
         catch( Exception e )
         {

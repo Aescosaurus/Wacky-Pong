@@ -34,6 +34,10 @@ public class Ball
     static Vector2 botRight = new Vector2( 0.0f,0.0f );
     static BallLostEvent addPoints = new BallLostEvent();
     [SerializeField] BallType myType;
+    static Timer speedupTimer;
+    bool spedMyselfUp = false;
+    static bool speedy = false;
+    static bool initializedListeners = false;
     // 
     public float Hits
     {
@@ -86,12 +90,46 @@ public class Ball
 
         lifetimer.AddListener( DestroyAndMakeNewBall );
         moveTimer.AddListener( InitiateMovement );
+
+        if( speedupTimer == null )
+        {
+            speedupTimer = gameObject.AddComponent<Timer>();
+        }
+
+        if( !initializedListeners )
+        {
+            EventManager.AddListener( SpeedUp );
+            Pickup.AddSpeedupListener( SpeedUp );
+            initializedListeners = true;
+        }
     }
     /// <summary>
     ///     Updates timers and starts/destroys when they're done.
     /// </summary>
     void Update()
     {
+        if( !startedMoving ) return;
+
+        if( speedupTimer.Finished ) speedy = false;
+
+        if( speedy )
+        {
+            if( !spedMyselfUp )
+            {
+                body.velocity *= 2.0f;
+                spedMyselfUp = true;
+            }
+        }
+        else
+        {
+            if( spedMyselfUp )
+            {
+                body.velocity /= 2.0f;
+            }
+
+            spedMyselfUp = false;
+        }
+
         // All this stuff is done with event handling.
     }
     /// <summary>
@@ -228,5 +266,19 @@ public class Ball
     protected BallType GetBallType()
     {
         return( myType );
+    }
+    static void SpeedUp( ScreenSide s,int t )
+    {
+        if( !speedy )
+        {
+            speedupTimer.Duration = ConfigurationUtils.SpeedupDuration;
+        }
+        else
+        {
+            speedupTimer.Duration += ConfigurationUtils.SpeedupDuration;
+        }
+
+        speedy = true;
+        speedupTimer.Run();
     }
 }

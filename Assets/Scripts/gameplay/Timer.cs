@@ -33,6 +33,8 @@ public class Timer : MonoBehaviour
 	/// <value>duration</value>
 	public float Duration
     {
+        // Had to add get accessor to make freeze time stacking work.
+        get { return( totalSeconds ); }
 		set
         {
 			if (!running)
