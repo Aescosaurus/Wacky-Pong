@@ -781,6 +781,7 @@ GameObject:
   - component: {fileID: 771798675}
   - component: {fileID: 771798674}
   - component: {fileID: 771798677}
+  - component: {fileID: 771798678}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -859,6 +860,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fce735b5bf7ae4e89161dca2d7423f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &771798678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 771798673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad4abcfed08cb8438c0efe40d5eb3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonHover: {fileID: 8300000, guid: 3ff6370160a67a94d81f1101d6e78e12, type: 3}
+  buttonClick: {fileID: 8300000, guid: 66cbc1411556b5d41ada94d70237d35d, type: 3}
+  ballHit: {fileID: 8300000, guid: 076f7ec535ff2144a80d7fd979c7940d, type: 3}
+  paddleHit: {fileID: 8300000, guid: ddd4fb81ce5b6104dbc89427e795dac6, type: 3}
+  spawnBall: {fileID: 8300000, guid: 59444aa4cd7712e429e7125db10bcaa2, type: 3}
+  loseBall: {fileID: 8300000, guid: 44c8cd6220d401345b71fa15d5b438c1, type: 3}
+  gameOver: {fileID: 8300000, guid: ee8ccfbe8a65a8c42839cb4125b10e0a, type: 3}
+  freeze: {fileID: 8300000, guid: 643bacba69aa48045913d54ee9c34f1a, type: 3}
+  speedup: {fileID: 8300000, guid: b5e86e0f364c6a448b38eff26f7340ad, type: 3}
 --- !u!1 &922284437
 GameObject:
   m_ObjectHideFlags: 0

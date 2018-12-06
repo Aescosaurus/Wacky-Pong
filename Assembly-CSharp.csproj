@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AudioHolder.cs" />
      <Compile Include="Assets\Scripts\configuration\ConfigurationData.cs" />
      <Compile Include="Assets\Scripts\configuration\ConfigurationUtils.cs" />
      <Compile Include="Assets\Scripts\DestroyBallWhenInvisible.cs" />

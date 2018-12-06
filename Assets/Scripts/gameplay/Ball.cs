@@ -38,6 +38,9 @@ public class Ball
     bool spedMyselfUp = false;
     static bool speedy = false;
     static bool initializedListeners = false;
+    static AudioSource spawn;
+    static AudioSource destroy;
+    static AudioSource hitOtherBall;
     // 
     public float Hits
     {
@@ -47,6 +50,20 @@ public class Ball
     {
         // Set up initial vars pls ty.
         body = GetComponent<Rigidbody2D>();
+
+        if( spawn == null || destroy == null ||
+            hitOtherBall == null )
+        {
+            var cam = Camera.main;
+            spawn = cam.gameObject.AddComponent<AudioSource>();
+            destroy = cam.gameObject.AddComponent<AudioSource>();
+            hitOtherBall = cam.gameObject.AddComponent<AudioSource>();
+
+            var holder = cam.GetComponent<AudioHolder>();
+            spawn.clip = holder.spawnBall;
+            destroy.clip = holder.loseBall;
+            hitOtherBall.clip = holder.ballHit;
+        }
     }
     /// <summary>
     /// Use this for initialization
@@ -104,6 +121,8 @@ public class Ball
             Pickup.AddSpeedupListener( SpeedUp );
             initializedListeners = true;
         }
+
+        spawn.Play();
     }
     /// <summary>
     ///     Updates timers and starts/destroys when they're done.
@@ -189,6 +208,8 @@ public class Ball
     /// </summary>
     public void DestroyAndMakeNewBall()
     {
+        destroy.Play();
+
         if( !destroying )
         {
             destroying = true;
@@ -265,7 +286,7 @@ public class Ball
             startedMoving = true;
         }
     }
-    protected BallType GetBallType()
+    public BallType GetBallType()
     {
         return ( myType );
     }
@@ -282,5 +303,12 @@ public class Ball
 
         speedy = true;
         speedupTimer.Run();
+    }
+    void OnCollisionEnter2D( Collision2D coll )
+    {
+        if( coll.gameObject.tag == "Ball" )
+        {
+            hitOtherBall.Play();
+        }
     }
 }

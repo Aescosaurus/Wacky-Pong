@@ -31,6 +31,15 @@ public abstract class Button
             .GetComponent<Light>();
         Assert.IsNotNull( myLight );
         UnHighlight();
+
+        if( hover == null || click == null )
+        {
+            hover = gameObject.AddComponent<AudioSource>();
+            click = gameObject.AddComponent<AudioSource>();
+
+            hover.clip = cam.GetComponent<AudioHolder>().buttonHover;
+            click.clip = cam.GetComponent<AudioHolder>().buttonClick;
+        }
     }
     protected virtual void Update()
     {
@@ -56,6 +65,8 @@ public abstract class Button
                 //  children do to implement their custom
                 //  behavior.
                 clicked = true;
+
+                click.Play();
             }
             else clicked = false;
         }
@@ -68,6 +79,7 @@ public abstract class Button
     }
     protected void HighlightMe()
     {
+        if( !hover.isPlaying ) hover.Play();
         // Turn the lights on.
         myLight.enabled = true;
     }
@@ -89,4 +101,6 @@ public abstract class Button
     protected Light myLight;
     protected bool clicked = false;
     bool canClick = false;
+    static AudioSource hover = null;
+    static AudioSource click = null;
 }

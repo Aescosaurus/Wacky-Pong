@@ -6,8 +6,14 @@ public class GameOver
     :
     MonoBehaviour
 {
+    void Start()
+    {
+        gameOver = gameObject.AddComponent<AudioSource>();
+        gameOver.clip = Camera.main.GetComponent<AudioHolder>().gameOver;
+    }
     public void EndGame( ScreenSide winner )
     {
+        gameOver.Play();
         var paddles = GameObject.FindGameObjectsWithTag( "Player" );
         var balls = GameObject.FindGameObjectsWithTag( "Ball" );
 
@@ -44,4 +50,5 @@ public class GameOver
     // 
     [SerializeField] GameObject player1Wins;
     [SerializeField] GameObject player2Wins;
+    AudioSource gameOver;
 }

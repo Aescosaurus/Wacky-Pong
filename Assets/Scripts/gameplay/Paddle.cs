@@ -35,6 +35,19 @@ public class Paddle
             Pickup.AddFrozenListener( Freeze );
             initializedListeners = true;
         }
+
+        if( ballHit == null || freezeHit == null ||
+            speedupHit == null )
+        {
+            ballHit = gameObject.AddComponent<AudioSource>();
+            freezeHit = gameObject.AddComponent<AudioSource>();
+            speedupHit = gameObject.AddComponent<AudioSource>();
+
+            var holder = Camera.main.GetComponent<AudioHolder>();
+            ballHit.clip = holder.paddleHit;
+            freezeHit.clip = holder.freeze;
+            speedupHit.clip = holder.speedup;
+        }
     }
     void Update()
     {
@@ -122,6 +135,15 @@ public class Paddle
         var pickupScr = coll.gameObject.GetComponent<Pickup>();
         if( coll.gameObject.tag == "Ball" && pickupScr != null )
         {
+            switch( pickupScr.GetBallType() )
+            {
+                case BallType.Freezer:
+                    freezeHit.Play();
+                    break;
+                case BallType.Speedup:
+                    speedupHit.Play();
+                    break;
+            }
             pickupScr.InvokeEffect( mySide );
             pickupScr.DestroyAndMakeNewBall();
             // Destroy( coll.gameObject );
@@ -129,6 +151,7 @@ public class Paddle
 
         if( IsHittingSide( coll ) && coll.gameObject.CompareTag( "Ball" ) )
         {
+            ballHit.Play();
             // calculate new ball direction
             float ballOffsetFromPaddleCenter =
                 coll.transform.position.y - transform.position.y;
@@ -244,4 +267,7 @@ public class Paddle
     static BallLostEvent hitPaddle = new BallLostEvent();
     Timer frozenTimer;
     static bool initializedListeners = false;
+    static AudioSource ballHit;
+    static AudioSource freezeHit;
+    static AudioSource speedupHit;
 }
