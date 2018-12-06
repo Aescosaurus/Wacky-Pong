@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Assertions;
 
 /// <summary>
 ///     Displays UI elements like score and number of hits.
@@ -73,5 +74,18 @@ public class HUD
                 break;
         }
         scoreText.text = leftScore.ToString() + " - " + rightScore;
+
+        var cam = Camera.main;
+        Assert.IsNotNull( cam );
+        if( leftScore >= ConfigurationUtils.PointsToWin )
+        {
+            cam.GetComponent<GameOver>()
+                .EndGame( ScreenSide.Left );
+        }
+        else if( rightScore >= ConfigurationUtils.PointsToWin )
+        {
+            cam.GetComponent<GameOver>()
+                .EndGame( ScreenSide.Right );
+        }
     }
 }

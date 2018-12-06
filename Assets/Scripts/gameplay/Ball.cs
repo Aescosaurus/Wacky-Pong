@@ -43,14 +43,16 @@ public class Ball
     {
         get { return hits; }
     }
+    void Awake()
+    {
+        // Set up initial vars pls ty.
+        body = GetComponent<Rigidbody2D>();
+    }
     /// <summary>
     /// Use this for initialization
     /// </summary>
     protected virtual void Start()
     {
-        // Set up initial vars pls ty.
-        body = GetComponent<Rigidbody2D>();
-
         switch( myType )
         {
             case BallType.Standard:
@@ -265,7 +267,7 @@ public class Ball
     }
     protected BallType GetBallType()
     {
-        return( myType );
+        return ( myType );
     }
     static void SpeedUp( ScreenSide s,int t )
     {

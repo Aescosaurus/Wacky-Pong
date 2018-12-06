@@ -21,6 +21,7 @@ public class Timer : MonoBehaviour
 	bool started = false;
 
     UnityEvent timerFinished = new UnityEvent();
+    static bool paused = false;
 	
 	#endregion
 	
@@ -51,7 +52,7 @@ public class Timer : MonoBehaviour
 	/// <value>true if finished; otherwise, false.</value>
 	public bool Finished
     {
-		get { return started && !running; } 
+		get { return started && !running && !paused; } 
 	}
 	
 	/// <summary>
@@ -73,7 +74,7 @@ public class Timer : MonoBehaviour
     void Update()
     {	
 		// update timer and check for finished
-		if (running)
+		if (running && !paused)
         {
 			elapsedSeconds += Time.deltaTime;
 			if (elapsedSeconds >= totalSeconds)
@@ -106,6 +107,16 @@ public class Timer : MonoBehaviour
     public void AddListener( UnityAction listener )
     {
         timerFinished.AddListener( listener );
+    }
+
+    public static void PauseAll()
+    {
+        paused = true;
+    }
+
+    public static void UnpauseAll()
+    {
+        paused = false;
     }
 	
 	#endregion

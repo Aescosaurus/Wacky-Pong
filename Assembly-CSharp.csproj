@@ -72,8 +72,10 @@
      <Compile Include="Assets\Scripts\HotDogRotator.cs" />
      <Compile Include="Assets\Scripts\MeatballRotator.cs" />
      <Compile Include="Assets\Scripts\Menus\BackButton.cs" />
+     <Compile Include="Assets\Scripts\Menus\BackToMainMenu.cs" />
      <Compile Include="Assets\Scripts\Menus\BackToMenuButton.cs" />
      <Compile Include="Assets\Scripts\Menus\Button.cs" />
+     <Compile Include="Assets\Scripts\Menus\GameOver.cs" />
      <Compile Include="Assets\Scripts\Menus\HandlePausing.cs" />
      <Compile Include="Assets\Scripts\Menus\HelpButton.cs" />
      <Compile Include="Assets\Scripts\Menus\MenuController.cs" />

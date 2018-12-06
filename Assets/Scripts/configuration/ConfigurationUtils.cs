@@ -99,6 +99,11 @@ public static class ConfigurationUtils
         get { return( configData.SpeedupDuration ); }
     }
 
+    public static float PointsToWin
+    {
+        get { return( configData.PointsToWin ); }
+    }
+
     #endregion
 
     /// <summary>
